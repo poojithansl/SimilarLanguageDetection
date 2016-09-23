@@ -1,12 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import string
-f=open('train.txt',mode='r')
-df=open('preproctrain.txt',mode='w')
+#f=open('train.txt',mode='r')
+f=open('preproctrain.txt',mode='r')
+df=open('preproctrainreal.txt',mode='w')
 #t=f.readlines()
+"""
 for line in f:
-    out_line = line.translate(string.maketrans("",""),string.digits+string.punctuation)
-    df.write(out_line)
+    oline = line.translate(string.maketrans("",""),string.digits+string.punctuation)
+    df.write(oline)
 
-f.close()
 df.close()
+"""
+for line in f:
+	oline = line.decode('utf-8').lower()
+	df.write(oline.encode('utf-8'))
+	#print out_line
+df.close()
+f.close()
